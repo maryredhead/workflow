@@ -21,6 +21,9 @@ public class User extends Human {
     @ManyToOne
     private CustomFlow custompath;
 
+    @ManyToOne
+    private Document document;
+
     @Column
     @NotNull
     private UserType userType;
