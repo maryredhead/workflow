@@ -7,57 +7,29 @@ import javax.validation.constraints.NotNull;
 //пользователи, которых заводит админ. логин, пароль, бизнес-роль
 
 @Entity
-public class User {
+public class User extends Human {
 
     public User(){
 
     }
-    public User(String login, String password){
-        this.login = login;
-        this.password = password;
 
+    public User(String login, String password, UserType userType) {
+        super(login, password);
+        this.userType = userType;
     }
 
-    @Id
-    @GeneratedValue
-    @NotNull
-    private Long id;
+    @ManyToOne
+    private CustomFlow custompath;
 
     @Column
     @NotNull
-    private String login;
-
-    @Column
-    @NotNull
-    private String password;
-
     private UserType userType;
 
-
-
-    public String getLogin() {
-        return login;
+    public UserType getUserType() {
+        return userType;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserType(UserType userType) {
+        this.userType = userType;
     }
 }

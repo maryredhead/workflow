@@ -44,6 +44,9 @@ public class AbstractFlow {
         this.id = id;
     }
 
+
+
+
     @Id
     @GeneratedValue
     @NotNull
@@ -53,6 +56,9 @@ public class AbstractFlow {
     @Column
     private String templateName;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "abstractpath", cascade = CascadeType.ALL)
     private List<UserType> abstractPath;
 
+    @ManyToOne
+    private CustomFlow customflow;
 }

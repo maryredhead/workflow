@@ -21,6 +21,10 @@ public class UserType {
         this.accessRoles = accessRoles;
     }
 
+    @ManyToOne
+    private AbstractFlow abstractpath;
+
+
     @Id
     @GeneratedValue
     @NotNull
@@ -32,4 +36,28 @@ public class UserType {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usertype", cascade = CascadeType.ALL)
     private List<AccessRole> accessRoles;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<AccessRole> getAccessRoles() {
+        return accessRoles;
+    }
+
+    public void setAccessRoles(List<AccessRole> accessRoles) {
+        this.accessRoles = accessRoles;
+    }
 }

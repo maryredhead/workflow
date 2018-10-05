@@ -12,17 +12,55 @@ public class CustomFlow {
 
     }
 
+    public CustomFlow(AbstractFlow templateFlow, List<User> customPath) {
+        this.templateFlow = templateFlow;
+        this.customPath = customPath;
+    }
+
     @Id
     @GeneratedValue
     @NotNull
     private Long id;
 
-    @Column
-    @NotNull
-    private AbstractFlow tempalteId;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customflow", cascade = CascadeType.ALL)
+    private AbstractFlow templateFlow;
 
-    private List<User> flow;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "custompath", cascade = CascadeType.ALL)
+    private List<User> customPath;
 
+    @OneToMany (fetch = FetchType.LAZY, mappedBy = "docflow", cascade = CascadeType.ALL)
+    private List<Document> Documents;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public AbstractFlow getTemplateFlow() {
+        return templateFlow;
+    }
+
+    public void setTemplateFlow(AbstractFlow templateFlow) {
+        this.templateFlow = templateFlow;
+    }
+
+    public List<User> getCustomPath() {
+        return customPath;
+    }
+
+    public void setCustomPath(List<User> customPath) {
+        this.customPath = customPath;
+    }
+
+    public List<Document> getDocuments() {
+        return Documents;
+    }
+
+    public void setDocuments(List<Document> documents) {
+        Documents = documents;
+    }
 }

@@ -9,4 +9,7 @@ public enum AccessRole {
     read,
     change; //включает чтение
 
+
+    @ManyToOne
+    private UserType usertype;
 }
