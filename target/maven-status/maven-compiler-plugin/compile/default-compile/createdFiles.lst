@@ -1,0 +1,11 @@
+workflow\entities\Human.class
+workflow\entities\SystemRole.class
+workflow\entities\AbstractFlow.class
+workflow\entities\Document.class
+workflow\entities\User.class
+workflow\entities\AccessRole.class
+workflow\Application.class
+workflow\entities\StatusDoc.class
+workflow\entities\UserType.class
+workflow\entities\CustomFlow.class
+workflow\entities\SysUser.class
